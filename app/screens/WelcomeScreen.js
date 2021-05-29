@@ -1,7 +1,24 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, View, Text } from 'react-native';
 import AppButton from '../components/AppButton';
+
+function WelcomeScreen() {
+  return (
+    <ImageBackground
+      style={styles.background}
+      blurRadius={10}
+      source={require('../assets/background.jpg')}>
+      <View style={styles.logoContainer}>
+        <Image style={styles.logo} source={require('../assets/logo-red.png')} />
+        <Text style={styles.tagLine}>Desapegue</Text>
+      </View>
+      <View style={styles.buttonsContainer}>
+        <AppButton title="Login" />
+        <AppButton title="Registrar" color="secondary" />
+      </View>
+    </ImageBackground>
+  );
+}
 
 const styles = StyleSheet.create({
   background: {
@@ -28,23 +45,5 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
 });
-
-function WelcomeScreen() {
-  return (
-    <ImageBackground
-      style={styles.background}
-      blurRadius={10}
-      source={require('../assets/background.jpg')}>
-      <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require('../assets/logo-red.png')} />
-        <Text style={styles.tagLine}>Desapegue</Text>
-      </View>
-      <View style={styles.buttonsContainer}>
-        <AppButton title="Login" />
-        <AppButton title="Registrar" color="secondary" />
-      </View>
-    </ImageBackground>
-  );
-}
 
 export default WelcomeScreen;
