@@ -2,8 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import Icon from '../components/Icon';
 
-import ListItem from '../components/ListItem';
-import ListItemSeparator from '../components/ListItemSeparator';
+import { ListItem, ListItemSeparator } from '../components/lists';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 
@@ -12,7 +11,7 @@ const menuItems = [
   { title: 'My Messages', icon: { name: 'email', backgroundColor: colors.secondary } },
 ];
 
-function AccountScreen(props) {
+function AccountScreen() {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
