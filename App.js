@@ -1,13 +1,14 @@
-import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
-import AppNavigator from './app/navigation/AppNavigator';
-import AuthNavigator from './app/navigation/AuthNavigator';
-import navigationTheme from './app/navigation/navigationTheme';
+import React, { useContext } from 'react';
+
+import GlobalContext, { GlobalProvider } from './app/contexts/globalContext';
+import GlobalContextApp from './GlobalContextApp';
 
 export default function App() {
+  const context = useContext(GlobalContext);
+  console.log('context', context);
   return (
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
+    <GlobalProvider>
+      <GlobalContextApp />
+    </GlobalProvider>
   );
 }

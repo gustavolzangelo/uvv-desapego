@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import Icon from '../components/Icon';
 
+import GlobalContext from '../contexts/globalContext';
+import Icon from '../components/Icon';
 import { ListItem, ListItemSeparator } from '../components/lists';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
@@ -16,6 +17,9 @@ const menuItems = [
 ];
 
 function AccountScreen({ navigation }) {
+  const context = useContext(GlobalContext);
+  console.log(context);
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -41,7 +45,13 @@ function AccountScreen({ navigation }) {
           )}
         />
       </View>
-      <ListItem title="Log Out" IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />} />
+      <ListItem
+        title="Log Out"
+        IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        onPress={() => {
+          context.setSigned(false);
+        }}
+      />
     </Screen>
   );
 }
