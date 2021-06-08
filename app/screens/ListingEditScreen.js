@@ -18,24 +18,21 @@ const categories = [
   {
     label: { EN_US: 'Furniture', PT_BR: 'Mobília', ES: 'Mueble' },
     value: 1,
-    backgroundColor: 'red',
     icon: 'apps',
   },
   {
     label: { EN_US: 'Clothing', PT_BR: 'Roupas', ES: 'Ropa' },
     value: 2,
-    backgroundColor: 'green',
     icon: 'email',
   },
   {
     label: { EN_US: 'Camera', PT_BR: 'Câmera', ES: 'Cámara' },
     value: 3,
-    backgroundColor: 'blue',
     icon: 'lock',
   },
 ];
 
-function ListingEditScreen() {
+function ListingEditScreen({ navigation }) {
   const { language } = useContext(GlobalContext);
 
   return (
@@ -47,7 +44,7 @@ function ListingEditScreen() {
           description: '',
           category: null,
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={() => navigation.navigate('Feed')}
         validationSchema={validationSchema}>
         <AppFormField
           maxLength={255}
@@ -64,7 +61,6 @@ function ListingEditScreen() {
         <AppFormPicker
           items={categories}
           name="category"
-          // PickerItemComponent={CategoryPickerItem}
           placeholder={LISTING_EDIT_SCREEN[language]['APP_FORM_FIELD_CATEGORY']}
         />
         <AppFormField
@@ -74,7 +70,7 @@ function ListingEditScreen() {
           numberOfLines={3}
           placeholder={LISTING_EDIT_SCREEN[language]['APP_FORM_FIELD_DESCRIPTION']}
         />
-        <SubmitButton title={LISTING_EDIT_SCREEN[language]['APP_FORM_FIELD_POST']} />
+        <SubmitButton title={LISTING_EDIT_SCREEN[language]['APP_FORM_SUBMIT_POST']} />
       </AppForm>
     </Screen>
   );

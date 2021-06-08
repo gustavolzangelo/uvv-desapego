@@ -33,8 +33,8 @@ const languagesLabel = [
 function LanguageScreen({ navigation }) {
   const { language, setLanguage } = useContext(GlobalContext);
   const handleSubmit = ({ language }) => {
-    setLanguage(language.value);
     navigation.navigate('Account');
+    setLanguage(language.value);
   };
   return (
     <Screen style={styles.container}>

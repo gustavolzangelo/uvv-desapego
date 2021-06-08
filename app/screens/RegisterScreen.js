@@ -15,13 +15,13 @@ const validationSchema = Yup.object().shape({
 });
 
 function RegisterScreen() {
-  const { language } = useContext(GlobalContext);
+  const { language, setSigned } = useContext(GlobalContext);
 
   return (
     <Screen style={styles.container}>
       <AppForm
         initialValues={{ name: '', email: '', password: '' }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={() => setSigned(true)}
         validationSchema={validationSchema}>
         <AppFormField
           autoCorrect={false}

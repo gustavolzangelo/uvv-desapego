@@ -6,6 +6,7 @@ import Icon from '../components/Icon';
 import { ListItem, ListItemSeparator } from '../components/lists';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
+import { ACCOUNT_SCREEN } from '../config/messages';
 
 const menuItems = [
   {
@@ -35,13 +36,14 @@ function AccountScreen({ navigation }) {
         />
       </View>
       <View style={styles.container}>
+        {console.log(language)}
         <FlatList
           data={menuItems}
           keyExtractor={(menuItem) => menuItem.id.toString()}
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
-              title={item.title[language]}
+              title={item.title}
               IconComponent={
                 <Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />
               }
@@ -51,7 +53,7 @@ function AccountScreen({ navigation }) {
         />
       </View>
       <ListItem
-        title="Log Out"
+        title={ACCOUNT_SCREEN[language]['APP_FORM_SUBMIT_LOGOUT']}
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
         onPress={() => {
           setSigned(false);

@@ -58,15 +58,15 @@ export const REGISTER_SCREEN = {
   },
 };
 
-export const LISTING_SCREEN = {
+export const APP_NAVIGATOR = {
   EN_US: {
-    CURRENCY: '$',
+    ACCOUNT: 'Account',
   },
   PT_BR: {
-    CURRENCY: 'R$',
+    ACCOUNT: 'Conta',
   },
-  ES: {
-    CURRENCY: '€',
+  EN: {
+    ACCOUNT: 'Cuenta',
   },
 };
 
@@ -97,13 +97,16 @@ export const ACCOUNT_SCREEN = {
   EN_US: {
     APP_FORM_FIELD_CATEGORY: 'Category',
     APP_FORM_SUBMIT_POST: 'Change',
+    APP_FORM_SUBMIT_LOGOUT: 'Log Out',
   },
   PT_BR: {
     APP_FORM_FIELD_CATEGORY: 'Categoria',
     APP_FORM_SUBMIT_POST: 'Mudar',
+    APP_FORM_SUBMIT_LOGOUT: 'Sair',
   },
   ES: {
     APP_FORM_FIELD_CATEGORY: 'Categoría',
     APP_FORM_SUBMIT_POST: 'Cambiar',
+    APP_FORM_SUBMIT_LOGOUT: 'Cerrar sesión',
   },
 };

@@ -10,7 +10,7 @@ const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
   const [signed, setSigned] = useState(false);
-  const [language, setLanguage] = useState(languageOptions.ES.id);
+  const [language, setLanguage] = useState(languageOptions.EN_US.id);
 
   return (
     <GlobalContext.Provider value={{ signed, setSigned, language, setLanguage }}>

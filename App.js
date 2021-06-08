@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import GlobalContext, { GlobalProvider } from './app/contexts/globalContext';
-import GlobalContextApp from './GlobalContextApp';
+import GlobalContextApp from './NavigationRoute';
 
 export default function App() {
   const context = useContext(GlobalContext);
