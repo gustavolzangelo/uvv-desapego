@@ -65,7 +65,7 @@ export const APP_NAVIGATOR = {
   PT_BR: {
     ACCOUNT: 'Conta',
   },
-  EN: {
+  ES: {
     ACCOUNT: 'Cuenta',
   },
 };
