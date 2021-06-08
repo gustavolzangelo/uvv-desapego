@@ -5,7 +5,7 @@ import GlobalContextApp from './GlobalContextApp';
 
 export default function App() {
   const context = useContext(GlobalContext);
-  console.log('context', context);
+  console.log('context App', context);
   return (
     <GlobalProvider>
       <GlobalContextApp />

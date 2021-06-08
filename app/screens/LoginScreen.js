@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import Screen from '../components/Screen';
 import { AppFormField, AppForm, SubmitButton } from '../components/forms';
 import GlobalContext from '../contexts/globalContext';
+import { LOGIN_SCREEN } from '../config/messages';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -12,9 +13,9 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen() {
-  const context = useContext(GlobalContext);
+  const { setSigned, language } = useContext(GlobalContext);
 
-  const handleSubmit = () => context.setSigned(true);
+  const handleSubmit = () => setSigned(true);
 
   return (
     <Screen style={styles.container}>
@@ -30,7 +31,7 @@ function LoginScreen() {
           keyboardType="email-address"
           name="email"
           icon="email"
-          placeholder="Email"
+          placeholder={LOGIN_SCREEN[language]['APP_FORM_FIELD_EMAIL']}
           textContentType="emailAddress"
         />
         <AppFormField
@@ -38,12 +39,12 @@ function LoginScreen() {
           autoCorrect={false}
           icon="lock"
           name="password"
-          placeholder="Password"
+          placeholder={LOGIN_SCREEN[language]['APP_FORM_FIELD_PASSWORD']}
           secureTextEntry
           textContentType="password"
         />
 
-        <SubmitButton title="Login" />
+        <SubmitButton title={LOGIN_SCREEN[language]['APP_FORM_FIELD_LOGIN']} />
       </AppForm>
     </Screen>
   );

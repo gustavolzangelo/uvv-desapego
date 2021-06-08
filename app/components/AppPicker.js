@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback, Modal, Button, FlatList } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -6,6 +6,7 @@ import defaultStyles from '../config/styles';
 import AppText from './AppText';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
+import GlobalContext from '../contexts/globalContext';
 
 function AppPicker({
   icon,
@@ -17,6 +18,7 @@ function AppPicker({
   selectedItem,
   width = '100%',
 }) {
+  const { language } = useContext(GlobalContext);
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -31,7 +33,7 @@ function AppPicker({
             />
           )}
           {selectedItem ? (
-            <AppText style={styles.text}>{selectedItem.label}</AppText>
+            <AppText style={styles.text}>{selectedItem.label[language]}</AppText>
           ) : (
             <AppText style={styles.placeholder}>{placeholder}</AppText>
           )}
@@ -51,7 +53,7 @@ function AppPicker({
             renderItem={({ item }) => (
               <PickerItemComponent
                 item={item}
-                label={item.label}
+                label={item.label[language]}
                 onPress={() => {
                   setModalVisible(false);
                   onSelectItem(item);
@@ -74,7 +76,7 @@ function AppPicker({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: defaultStyles.colors.light,
+    backgroundColor: 'defaultStyles.colors.light',
     borderRadius: 25,
     flexDirection: 'row',
     padding: 15,

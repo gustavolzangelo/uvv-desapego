@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import Card from '../components/Card';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import routes from '../navigation/routes';
+import GlobalContext from '../contexts/globalContext';
+import { LISTING_SCREEN } from '../config/messages';
 
 const listings = [
   {
@@ -21,6 +23,8 @@ const listings = [
 ];
 
 function ListingScreen({ navigation }) {
+  const { language } = useContext(GlobalContext);
+
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -29,7 +33,7 @@ function ListingScreen({ navigation }) {
         renderItem={({ item }) => (
           <Card
             title={item.title}
-            subTitle={'R$' + item.price}
+            subTitle={LISTING_SCREEN[language]['CURRENCY'] + ' ' + item.price}
             image={item.image}
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />

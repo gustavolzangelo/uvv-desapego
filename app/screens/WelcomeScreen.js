@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Image, ImageBackground, StyleSheet, View, Text } from 'react-native';
 import AppButton from '../components/AppButton';
+import GlobalContext from '../contexts/globalContext';
+import { WELCOME_SCREEN } from '../config/messages';
 
 function WelcomeScreen({ navigation }) {
+  const { language } = useContext(GlobalContext);
   return (
     <ImageBackground
       style={styles.background}
@@ -10,12 +13,15 @@ function WelcomeScreen({ navigation }) {
       source={require('../assets/background.jpg')}>
       <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require('../assets/logo-red.png')} />
-        <Text style={styles.tagLine}>Desapegue</Text>
+        <Text style={styles.tagLine}>{WELCOME_SCREEN[language]['LOGO_VIEW']}</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" onPress={() => navigation.navigate('Login')} />
         <AppButton
-          title="Registrar"
+          title={WELCOME_SCREEN[language]['APP_BUTTON_LOGIN_TITLE']}
+          onPress={() => navigation.navigate('Login')}
+        />
+        <AppButton
+          title={WELCOME_SCREEN[language]['APP_BUTTON_REGISTER_TITLE']}
           color="secondary"
           onPress={() => navigation.navigate('Register')}
         />
